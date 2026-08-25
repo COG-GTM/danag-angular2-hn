@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 import { HackerNewsAPIService } from '../../shared/services/hackernews-api.service';
+import { ConnectivityService } from '../../shared/services/connectivity.service';
 import { Story } from '../../shared/models/story';
 
 @Component({
@@ -20,9 +21,11 @@ export class FeedComponent implements OnInit {
   pageNum: number;
   listStart: number;
   errorMessage = '';
+  isOffline = false;
 
   constructor(
     private _hackerNewsAPIService: HackerNewsAPIService,
+    private connectivityService: ConnectivityService,
     private route: ActivatedRoute
   ) { }
 
@@ -38,7 +41,12 @@ export class FeedComponent implements OnInit {
       this._hackerNewsAPIService.fetchFeed(this.feedType, this.pageNum)
         .subscribe(
           items => this.items = items,
-          error => this.errorMessage = 'Could not load ' + this.feedType + ' stories.',
+          error => {
+            this.isOffline = !this.connectivityService.isOnline;
+            this.errorMessage = this.isOffline
+              ? 'These ' + this.feedType + ' stories are not available offline.'
+              : 'Could not load ' + this.feedType + ' stories.';
+          },
           () => {
             this.listStart = ((this.pageNum - 1) * 30) + 1;
             window.scrollTo(0, 0);

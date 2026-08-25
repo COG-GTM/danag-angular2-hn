@@ -1,0 +1,20 @@
+@import "../../shared/scss/media";
+@import "../../shared/scss/theme_variables";
+
+.offline-indicator {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: center;
+  background: #4a4a4a;
+  color: #fff;
+
+  @media #{$mobile-only} {
+    font-size: 12px;
+  }
+}

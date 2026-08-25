@@ -8,5 +8,6 @@
     </div>
   </div>
   <p class="strong">{{ message }}</p>
-  <p>If you are offline viewing, you'll need to visit this page with a network connection first before it can work offline.</p>
+  <p *ngIf="offline">You're offline and this page hasn't been read on this device yet. Visit it once with a connection and it will be available offline.</p>
+  <p *ngIf="!offline">Something went wrong loading this page. Try again in a moment.</p>
 </div>
