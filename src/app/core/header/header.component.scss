@@ -102,7 +102,12 @@ h1 {
   margin-left: 20px;
 
   @media #{$mobile-only} {
-    margin-left: 60px;
+    margin-left: 55px;
+    padding-right: 40px;
+    display: block;
+    white-space: nowrap;
+    font-size: 14px;
+    word-spacing: -3px;
   }
 
   a {
