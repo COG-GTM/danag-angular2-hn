@@ -15,6 +15,41 @@ p {
     text-decoration: none;
   }
 
+  .save-toggle {
+    float: right;
+    margin-left: 10px;
+    padding: 0 4px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #b0b0b0;
+
+    &.saved {
+      color: #f0a30a;
+    }
+
+    &:hover {
+      color: #f0a30a;
+    }
+  }
+
+  .eviction-notice {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+
+    .dismiss {
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: inherit;
+      font-size: 14px;
+      padding: 0 4px;
+    }
+  }
+
   .title {
     font-size: 16px;
     font-family: Verdana, Geneva, sans-serif;
