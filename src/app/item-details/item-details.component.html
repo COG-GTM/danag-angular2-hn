@@ -3,6 +3,9 @@
   <app-error-message [message]="errorMessage" *ngIf="!item && errorMessage !== ''"></app-error-message>
 
   <div *ngIf="item" class="item">
+    <p *ngIf="savedCopyAt" class="saved-copy-notice">
+      You're offline &mdash; showing the copy saved {{savedCopyAt | date:'medium'}}.
+    </p>
     <div class="mobile item-header">
       <p class="title-block">
         <span class="back-button" (click)="goBack()"></span>
