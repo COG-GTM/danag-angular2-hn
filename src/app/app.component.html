@@ -2,6 +2,10 @@
   <div class="body-cover"></div>
   <div class="wrapper">
     <app-header></app-header>
+    <p class="eviction-notice" *ngIf="savedStories.lastEvicted" role="status">
+      Saved list full — removed the oldest saved story, “{{ savedStories.lastEvicted.title }}”.
+      <button type="button" (click)="savedStories.dismissEviction()">Dismiss</button>
+    </p>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
   </div>

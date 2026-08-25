@@ -58,6 +58,24 @@ p {
     }
   }
 
+  .save-toggle {
+    background: none;
+    border: 0;
+    padding: 0 6px 0 0;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    color: #c8c8c8;
+
+    &:hover {
+      color: #9a9a9a;
+    }
+
+    &.saved {
+      color: #ff6600;
+    }
+  }
+
   .domain {
     color: #696969;
     letter-spacing: 0.5px;
