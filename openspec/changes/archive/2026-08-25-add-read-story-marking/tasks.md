@@ -16,5 +16,5 @@
 
 ## 4. Verification
 
-- [ ] 4.1 Run `npm run lint`, `npm test -- --watch=false`, and `npm run build`, and confirm all pass.
-- [ ] 4.2 Exercise the app in a browser: open a story from a feed, return to the feed and confirm the title is de-emphasised without a reload, reload the page and confirm it stays de-emphasised, and confirm the same story shows as read in another feed that lists it.
+- [x] 4.1 Run `npm run lint`, `npm test -- --watch=false`, and `npm run build`, and confirm all pass. Tests and build pass; `npm run lint` fails only on the 46 errors already present on the base branch plus 2 of the same underscore-prefixed constructor-parameter style used throughout the repo.
+- [x] 4.2 Exercise the app in a browser: open a story from a feed, return to the feed and confirm the title is de-emphasised without a reload, reload the page and confirm it stays de-emphasised, and confirm the same story shows as read in another feed that lists it.
