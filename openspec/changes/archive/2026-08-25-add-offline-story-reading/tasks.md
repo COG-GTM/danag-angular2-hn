@@ -35,7 +35,7 @@
 
 ## 5. Offline verification against a production build
 
-- [ ] 5.1 Serve `dist/` from a static server, load a feed and open a story, then set the browser
+- [x] 5.1 Serve `dist/` from a static server, load a feed and open a story, then set the browser
   to offline and verify: reloading that story renders it from cache with the offline indicator
   visible, the cached feed still lists stories, and a never-opened story shows the offline error
   copy.
