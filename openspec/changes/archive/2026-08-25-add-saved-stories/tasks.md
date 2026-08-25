@@ -40,6 +40,6 @@
 - [x] 4.1 Run the full unit suite with `NODE_OPTIONS=--openssl-legacy-provider
   CHROME_BIN=$(find /opt/.devin/chrome -name chrome -type f | head -1) npm test -- --watch=false` and confirm the new specs pass with no regressions
 - [x] 4.2 Confirm `NODE_OPTIONS=--openssl-legacy-provider npm run build` succeeds
-- [ ] 4.3 Walk every spec scenario in the browser: save from the feed, unsave from the feed, unsave
+- [x] 4.3 Walk every spec scenario in the browser: save from the feed, unsave from the feed, unsave
   from the saved page, newest-first ordering, the empty state, bookmarks surviving a reload, and
   eviction with its notice at the cap
