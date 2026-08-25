@@ -42,6 +42,29 @@ Saved stories SHALL be stored on the reader's device and SHALL remain saved acro
 - **WHEN** persisting a bookmark fails because device storage is unavailable or full
 - **THEN** the application continues to work with the in-memory saved set and does not surface an unhandled error
 
+### Requirement: Bounded saved set with oldest-first eviction
+The saved set SHALL hold at most 200 stories. Saving a story when the set is already at the cap SHALL evict the oldest saved story to make room, and the application SHALL inform the reader that this happened, naming what was removed. The eviction SHALL be persisted along with the new bookmark.
+
+#### Scenario: Saving at the cap evicts the oldest
+- **WHEN** a reader saves a story while 200 stories are already saved
+- **THEN** the new story is saved, the story saved longest ago is no longer saved, and the set still holds 200 stories
+
+#### Scenario: Eviction is reported to the reader
+- **WHEN** a save causes an eviction
+- **THEN** the reader is shown a notice identifying the story that was removed to make room
+
+#### Scenario: No notice without an eviction
+- **WHEN** a reader saves a story while fewer than 200 stories are saved
+- **THEN** nothing is evicted and no eviction notice is shown
+
+#### Scenario: Eviction survives a reload
+- **WHEN** a save causes an eviction and the reader then reloads the application
+- **THEN** the evicted story is still absent and the newly saved story is present
+
+#### Scenario: Stored set already exceeds the cap
+- **WHEN** the stored bookmark data holds more than 200 stories
+- **THEN** the application keeps the 200 most recently saved and discards the rest
+
 ### Requirement: Saved stories page
 The application SHALL provide a `saved` page that lists every saved story using the same story presentation as the feeds, ordered most recently saved first. Removing a story from that page SHALL remove it from the list immediately.
 

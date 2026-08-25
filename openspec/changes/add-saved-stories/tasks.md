@@ -1,14 +1,16 @@
 ## 1. Saved stories store
 
-- [ ] 1.1 Add `SavedStoriesService` (`providedIn: 'root'`) in `src/app/shared/services/` holding the saved `Story[]` newest-first in a `BehaviorSubject`, exposing the list as an observable plus `isSaved(id)`, `toggle(story)`, and `remove(id)`; verify with unit tests that toggling twice returns the set to its previous contents
+- [ ] 1.1 Add `SavedStoriesService` (`providedIn: 'root'`) in `src/app/shared/services/` holding the saved `Story[]` newest-first in a `BehaviorSubject`, exposing the list as an observable plus `isSaved(id)`, `remove(id)`, and a `toggle(story)` that returns which story it evicted, if any; verify with unit tests that toggling twice returns the set to its previous contents
 - [ ] 1.2 Load the set from a single `localStorage` key in the constructor and write it back on every mutation; verify with a unit test that a service constructed after a `toggle` sees the saved story
 - [ ] 1.3 Wrap reads in try/catch falling back to an empty set, and wrap writes so a throwing `localStorage` leaves the in-memory set usable; verify with unit tests covering malformed JSON, a non-array payload, and a write that throws
+- [ ] 1.4 Enforce a 200-story cap in `toggle` by dropping the oldest entry and returning it as the eviction, and truncate an oversized array on load; verify with unit tests that saving at the cap keeps the length at 200, drops the oldest, reports the evicted story, and that a stored array of 250 loads as the newest 200
 
 ## 2. Feed item star toggle
 
 - [ ] 2.1 Add a star `button` to `ItemComponent`'s template with an `aria-label` stating the action and a class reflecting saved state, bound to `SavedStoriesService`; verify by unit test that the rendered control's state matches the service for a saved and an unsaved story
 - [ ] 2.2 Have the click handler call `toggle` and stop event propagation/default; verify by unit test that clicking the star does not activate the title link and that the service is called once
-- [ ] 2.3 Style the star in `item.component.scss` for both saved and unsaved states across the existing themes; verify visually on `/news/1` in the default and night themes
+- [ ] 2.3 When `toggle` reports an eviction, show a self-dismissing notice naming the dropped story's title; verify by unit tests that the notice appears with the evicted title on an evicting save and does not appear otherwise
+- [ ] 2.4 Style the star in `item.component.scss` for both saved and unsaved states across the existing themes; verify visually on `/news/1` in the default and night themes
 
 ## 3. Saved page
 
@@ -25,3 +27,4 @@
 
 - [ ] 5.1 Run `npm run lint` and `CHROME_BIN=$(find /opt/.devin/chrome -name chrome -type f | head -1) npm test -- --watch=false` and verify both pass
 - [ ] 5.2 Walk the full flow in the running app — save two stories from a feed, reload, open `/saved`, unsave one, reload again — and verify the list matches expectations at each step
+- [ ] 5.3 Seed 200 saved stories in `localStorage`, save one more in the running app, and verify the eviction notice names the oldest story and the saved page still lists 200 after a reload

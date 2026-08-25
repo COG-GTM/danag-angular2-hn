@@ -26,11 +26,21 @@ See proposal.md - Why. The app is an Angular SPA with no backend of its own: `Ha
 
 **The star lives in `ItemComponent`, next to the title.** That is the only component the saved page and feeds share, so putting it there satisfies "reuse the existing story item presentation" with no duplicate markup. It renders as a `button` with an `aria-label` that states the action, and calls `preventDefault`/`stopPropagation` so it never triggers the surrounding title link.
 
+**Cap the set at 200 snapshots, evicting oldest-first inside the service, and surface the eviction as a transient notice.** `localStorage` gives roughly 5MB per origin and a `Story` snapshot runs about 1KB, so an uncapped list can eventually fail a write — and because settings share the same origin quota, that failure is not contained to bookmarks. 200 keeps the store near 200KB, well inside the budget. Enforcing it in `toggle` (the single write path) means the invariant cannot be bypassed, and the load path truncates too, so an oversized stored array from an older build is repaired on read. Eviction is silent data loss from the reader's point of view, so `toggle` reports what it dropped rather than returning void:
+
+```ts
+type SaveResult = {saved: true; evicted?: Story};
+toggle(story: Story): SaveResult;   // callers render a notice when `evicted` is set
+```
+
+The notice names the dropped story's title and dismisses itself; it is not a blocking confirmation, since the reader can re-save from the feed. Alternatives considered: refusing the save at the cap — rejected because it makes the most recent intent lose to the oldest bookmark; a byte-size budget measured against the serialized payload — rejected as harder to explain to the reader than a story count, for the same protection.
+
 **The saved page is a plain eagerly-declared component with a static `saved` route, not a lazy feature module.** It is one small component with no extra dependencies, so a lazy module would add a chunk boundary for no benefit; `FeedComponent` sets the precedent for eagerly declared top-level pages. The route is `saved`, without the `:page` child pattern the feeds use, since the list is not paginated.
 
 ## Risks / Trade-offs
 
 - Saved snapshots go stale (points, comment count, time ago) → accepted; the title, link, and comments link stay valid, and the item-details page always shows live data.
 - `localStorage` is per-browser and per-device, so a reader who clears site data loses bookmarks → accepted and stated in the empty state's wording rather than mitigated; syncing requires accounts, which is a non-goal.
-- Unbounded growth of the saved array could hit the storage quota → the write path handles the quota error without breaking the app; a cap is deliberately left out until there is evidence it is needed.
+- The 200 cap can silently drop a bookmark a reader still wanted → mitigated by the eviction notice naming the dropped story; the quota-error handling in the write path stays as a second line of defense.
+- A reader who saves heavily hits the cap without warning at 199 → accepted; a running count or a warning threshold is left out until there is evidence readers approach the cap.
 - A future spec covering feed items or header nav will overlap this capability → the delta keeps toggle behavior described in terms of the story item, not of `ItemComponent`, so it can be split later without a rewrite.
