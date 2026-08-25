@@ -12,6 +12,21 @@
                     (change)="toggleOpenLinksInNewTab()" />
                     Open links in a new tab
             </div>
+            <div class="control-section">
+                <h2>Hidden stories</h2>
+                <p class="hidden-count">
+                    <span *ngIf="hiddenStoriesCount === 0">No stories are hidden on this device.</span>
+                    <span *ngIf="hiddenStoriesCount === 1">1 story is hidden on this device.</span>
+                    <span *ngIf="hiddenStoriesCount > 1">{{ hiddenStoriesCount }} stories are hidden on this device.</span>
+                </p>
+                <button
+                    type="button"
+                    class="clear-hidden"
+                    [disabled]="hiddenStoriesCount === 0"
+                    (click)="clearHiddenStories()">
+                    Unhide all stories
+                </button>
+            </div>
             <div class="theme-controls">
                 <div class="control-section">
                     <h2>Select a theme</h2>
