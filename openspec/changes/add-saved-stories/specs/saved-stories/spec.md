@@ -66,6 +66,26 @@ to any server, and SHALL be scoped to that browser only.
 - **WHEN** the reader opens the saved page while offline
 - **THEN** the saved stories render from local data with no request to the stories API
 
+### Requirement: Bounded saved list
+
+The saved list SHALL hold at most 200 stories. Saving beyond that SHALL remove the oldest saved
+story, and the reader SHALL be told that it happened.
+
+#### Scenario: Saving at the cap
+
+- **WHEN** the reader saves a story while 200 stories are already saved
+- **THEN** the new story is saved, the oldest saved story is removed, and the list still holds 200
+
+#### Scenario: Eviction is visible
+
+- **WHEN** a save evicts the oldest story
+- **THEN** the reader is shown a message naming the evicted story
+
+#### Scenario: Stored data above the cap
+
+- **WHEN** stored data holds more than 200 stories
+- **THEN** the application keeps the 200 most recently saved and discards the rest
+
 ### Requirement: Tolerating unusable storage
 
 Unreadable or unwritable local storage SHALL degrade the feature, never break the application.

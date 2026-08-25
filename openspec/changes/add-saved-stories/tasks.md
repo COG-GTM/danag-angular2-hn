@@ -9,6 +9,9 @@
 - [ ] 1.3 Implement `isSaved(id)`, `toggle(story)` and `remove(id)` — mutate the array, rebuild the
   `Set`, write the whole array back inside a try/catch so a quota failure degrades to in-memory;
   verify with specs for toggle on, toggle off, newest-first ordering, and a persistence round-trip
+- [ ] 1.4 Enforce a 200-story cap on write and on load, evicting oldest-first and exposing the
+  evicted story to callers; verify with specs for saving at the cap, the evicted story being the
+  oldest, and stored data above the cap being truncated on load
 
 ## 2. Save control on feed items
 
@@ -29,6 +32,8 @@
   `/saved` resolves on a cold load, not only via in-app navigation
 - [ ] 3.3 Add the `saved` nav link to `header.component.html` with `routerLinkActive="active"` and
   the existing `scrollTop()` handler; verify the header still fits on one row at 320px
+- [ ] 3.4 Surface an eviction notice naming the dropped story when a save hits the cap; verify in
+  the browser with a seeded 200-story list
 
 ## 4. Verification
 
@@ -36,4 +41,5 @@
   head -1) npm test -- --watch=false` and confirm the new specs pass with no regressions
 - [ ] 4.2 Confirm `NODE_OPTIONS=--openssl-legacy-provider npm run build` succeeds
 - [ ] 4.3 Walk every spec scenario in the browser: save from the feed, unsave from the feed, unsave
-  from the saved page, newest-first ordering, the empty state, and bookmarks surviving a reload
+  from the saved page, newest-first ordering, the empty state, bookmarks surviving a reload, and
+  eviction with its notice at the cap

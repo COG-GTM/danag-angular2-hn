@@ -11,6 +11,8 @@ so the expectation is set.
 - A new `saved` page listing saved stories, most recently saved first.
 - A `saved` link in the header nav alongside `new` / `show` / `ask` / `jobs`.
 - Bookmarks are kept on the device and survive a reload. No accounts, no backend, no sync.
+- The saved list is capped at 200 stories; saving past the cap drops the oldest saved story and
+  tells the reader it happened.
 - The saved page reuses the existing item presentation and shows an empty state when nothing is
   saved.
 - No breaking changes. No new dependency.
