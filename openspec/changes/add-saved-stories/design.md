@@ -54,8 +54,9 @@ Alternatives rejected: evicting only on quota failure, which makes the failure b
 untestable; and rejecting the save at the cap, which makes the star silently stop working.
 
 **Announce eviction in the UI rather than dropping silently.** Losing a bookmarked story without
-notice is the worse failure. The saved page renders a dismissible line naming the evicted story;
-no new dependency.
+notice is the worse failure. The application shell renders a dismissible line naming the evicted
+story, so the reader sees it where the save happened — on the feed — not only on the saved page.
+No new dependency.
 
 **Read state synchronously, no observable.** Matches `SettingsService` and lets the template bind
 to a getter. An observable would be the right call if two components could mutate concurrently;

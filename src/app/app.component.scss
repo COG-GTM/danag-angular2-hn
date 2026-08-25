@@ -8,6 +8,24 @@
   height: 100%;
 }
 
+.eviction-notice {
+  margin: 0;
+  padding: 8px 12px;
+  background: #ffeedd;
+  border-left: 3px solid #ff6600;
+  font-size: 13px;
+
+  button {
+    margin-left: 8px;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: underline;
+  }
+}
+
 .wrapper {
   position: relative;
   width: 85%;

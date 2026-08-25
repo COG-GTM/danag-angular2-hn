@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 import { SettingsService } from './shared/services/settings.service';
+import { SavedStoriesService } from './shared/services/saved-stories.service';
 import { Settings } from './shared/models/settings';
 
 declare let ga: Function;
@@ -18,6 +19,7 @@ export class AppComponent {
 
   constructor(
     private _settingsService: SettingsService,
+    public savedStories: SavedStoriesService,
     public router: Router
   ) {
     this.settings = this._settingsService.settings;
