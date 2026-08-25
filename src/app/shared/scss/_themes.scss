@@ -15,6 +15,7 @@
   $wrapper-color,
   $item-a-color,
   $item-a-visited-color,
+  $read-title-color,
   $header-background-color,
   $subtext-color,
   $secondary-link-color,
@@ -43,6 +44,10 @@
 
         &:visited {
             color: $item-a-visited-color;
+        }
+
+        &.title.read, &.title.read:visited {
+          color: $read-title-color;
         }
       }
 
@@ -201,6 +206,7 @@
   $theme-day-text-color,
   $theme-day-text-color,
   $theme-day-subtext-color,
+  $theme-day-read-title-color,
   $theme-day-header-background-color,
   $theme-day-subtext-color,
   $theme-day-secondary-color,
@@ -216,6 +222,7 @@
   $theme-night-text-color,
   $theme-night-text-color,
   $theme-night-subtext-color,
+  $theme-night-read-title-color,
   $theme-night-header-background-color,
   $theme-night-subtext-color,
   $theme-night-secondary-color,
@@ -231,6 +238,7 @@
   $theme-amoledblack-text-color,
   $theme-amoledblack-text-color,
   darken($theme-amoledblack-text-color, 33%),
+  $theme-amoledblack-read-title-color,
   $theme-amoledblack-body-background-color,
   $theme-amoledblack-subtext-color,
   $theme-amoledblack-secondary-color,
