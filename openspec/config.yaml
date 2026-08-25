@@ -1,32 +1,28 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  Angular 9 Hacker News reader. No backend of its own: it reads the public Firebase HN API and
+  keeps everything else on the device. Already a PWA — @angular/service-worker is registered in
+  production builds and ngsw-config.json prefetches the shell.
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+  Architecture decisions live in docs/adr/ and constrain how features are built:
+    - 0001 device-local state goes through an Angular service over namespaced localStorage keys,
+      no new state-management dependency
+    - 0002 offline availability of API data is configured in ngsw-config.json dataGroups;
+      application code does not copy API responses into localStorage
+    - 0003 every device-local collection declares a cap and evicts oldest first
 
-# Per-operation guidance (optional)
-# Add advisory guidance for how apply and archive work should be conducted.
-# This is separate from artifact rules above.
-# Example:
-#   operations:
-#     apply:
-#       guidance:
-#         - Keep test summaries concise
-#     archive:
-#       guidance:
-#         - Summarize the archive outcome before finishing
+  Conventions: components under src/app/<feature>/, shared services under
+  src/app/shared/services/, SCSS per component with the existing theme mixins, en-US copy.
+  Node 20 needs NODE_OPTIONS=--openssl-legacy-provider for build and test. Dependencies install
+  with yarn install --frozen-lockfile.
+
+rules:
+  proposal:
+    - State which ADRs in docs/adr/ constrain this change, or say none apply.
+    - A change that contradicts an accepted ADR must propose superseding it, not work around it.
+  design:
+    - Record rejected alternatives with the reason, not just the chosen approach.
+    - Any new persisted state names its storage key, its cap, and its eviction behavior.
+  tasks:
+    - Include a task for unit tests covering the new behavior.
