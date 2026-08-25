@@ -1,4 +1,5 @@
 <div [ngStyle]="{'margin-bottom': settings.listSpacing+'px'}">
+  <button type="button" class="save-toggle" [class.saved]="isSaved" [attr.aria-label]="saveLabel" [attr.aria-pressed]="isSaved" (click)="toggleSaved($event)">★</button>
   <p *ngIf="hasUrl">
     <a class="title" [ngStyle]="{'font-size': settings.titleFontSize+'px'}" href="{{item.url}}" [attr.target]="settings.openLinkInNewTab ? '_blank' : null" [attr.rel]="settings.openLinkInNewTab ? 'noopener' : null">
       {{item.title}}
@@ -9,6 +10,10 @@
     <a class="title" [ngStyle]="{'font-size': settings.titleFontSize+'px'}" [routerLink]="['/item', item.id]" routerLinkActive="active">
       {{item.title}}
     </a>
+  </p>
+  <p class="eviction-notice" *ngIf="evictedTitle" role="status">
+    Saved list full at 200 stories, so "{{ evictedTitle }}" was removed to make room.
+    <button type="button" class="dismiss" aria-label="Dismiss notice" (click)="dismissEvictionNotice()">×</button>
   </p>
   <div class="subtext-palm">
     <div class="details" *ngIf="item.type !== 'job'">
