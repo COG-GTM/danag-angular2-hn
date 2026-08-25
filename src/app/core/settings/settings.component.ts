@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SettingsService } from '../../shared/services/settings.service';
+import { HiddenStoriesService } from '../../shared/services/hidden-stories.service';
 import { Settings } from '../../shared/models/settings';
 
 @Component({
@@ -11,11 +12,19 @@ import { Settings } from '../../shared/models/settings';
 export class SettingsComponent implements OnInit {
   settings: Settings;
 
-  constructor(private _settingsService: SettingsService) {
+  constructor(private _settingsService: SettingsService, private _hiddenStoriesService: HiddenStoriesService) {
     this.settings = this._settingsService.settings;
   }
 
   ngOnInit() {
+  }
+
+  get hiddenStoriesCount(): number {
+    return this._hiddenStoriesService.count;
+  }
+
+  clearHiddenStories() {
+    this._hiddenStoriesService.clear();
   }
 
   closeSettings() {

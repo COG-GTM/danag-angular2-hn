@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Story } from '../../shared/models/story';
 
 import { SettingsService } from '../../shared/services/settings.service';
@@ -11,6 +11,7 @@ import { Settings } from '../../shared/models/settings';
 })
 export class ItemComponent implements OnInit {
   @Input() item: Story;
+  @Output() hide = new EventEmitter<Story>();
   settings: Settings;
 
   constructor(private _settingsService: SettingsService) {
@@ -21,6 +22,10 @@ export class ItemComponent implements OnInit {
 
   get hasUrl(): boolean {
     return this.item.url.indexOf('http') === 0;
+  }
+
+  hideStory() {
+    this.hide.emit(this.item);
   }
 
 }

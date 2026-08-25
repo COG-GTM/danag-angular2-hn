@@ -66,3 +66,16 @@ p {
   .item-details {
     padding: 10px;
   }
+
+  .hide-button {
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }

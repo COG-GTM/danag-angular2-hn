@@ -63,6 +63,27 @@ ol {
   display: block;
 }
 
+.hidden-notice {
+  margin: 2px 0;
+  font-size: 14px;
+  font-style: italic;
+
+  .undo-button {
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-style: normal;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 
 .nav {
   padding: 10px 40px;
