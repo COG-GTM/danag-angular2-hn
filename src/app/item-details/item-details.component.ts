@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { HackerNewsAPIService } from '../shared/services/hackernews-api.service';
 import { SettingsService } from '../shared/services/settings.service';
+import { OfflineStoryStoreService } from '../shared/services/offline-story-store.service';
 
 import { Story } from '../shared/models/story';
 import { Settings } from '../shared/models/settings';
@@ -19,10 +20,12 @@ export class ItemDetailsComponent implements OnInit {
   item: Story;
   errorMessage = '';
   settings: Settings;
+  savedCopyAt: Date = null;
 
   constructor(
     private _hackerNewsAPIService: HackerNewsAPIService,
     private _settingsService: SettingsService,
+    private _offlineStoryStore: OfflineStoryStoreService,
     private route: ActivatedRoute,
     private _location: Location
   ) {
@@ -32,8 +35,12 @@ export class ItemDetailsComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       let itemID = +params['id'];
+      const savedBefore = this._offlineStoryStore.get(itemID);
       this._hackerNewsAPIService.fetchItemContent(itemID).subscribe(item => {
         this.item = item;
+        const savedAfter = this._offlineStoryStore.get(itemID);
+        const isSavedCopy = savedBefore && savedAfter && savedAfter.savedAt === savedBefore.savedAt;
+        this.savedCopyAt = isSavedCopy ? new Date(savedAfter.savedAt) : null;
       }, error => this.errorMessage = 'Could not load item comments.');
     });
     window.scrollTo(0, 0);
