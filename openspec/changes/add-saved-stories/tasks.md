@@ -10,7 +10,7 @@
 - [x] 2.1 Add a star `button` to `ItemComponent`'s template with an `aria-label` stating the action and a class reflecting saved state, bound to `SavedStoriesService`; verify by unit test that the rendered control's state matches the service for a saved and an unsaved story
 - [x] 2.2 Have the click handler call `toggle` and stop event propagation/default; verify by unit test that clicking the star does not activate the title link and that the service is called once
 - [x] 2.3 When `toggle` reports an eviction, show a self-dismissing notice naming the dropped story's title; verify by unit tests that the notice appears with the evicted title on an evicting save and does not appear otherwise
-- [ ] 2.4 Style the star in `item.component.scss` for both saved and unsaved states across the existing themes; verify visually on `/news/1` in the default and night themes
+- [x] 2.4 Style the star in `item.component.scss` for both saved and unsaved states across the existing themes; verify visually on `/news/1` in the default and night themes
 
 ## 3. Saved page
 
@@ -20,11 +20,11 @@
 
 ## 4. Wiring
 
-- [ ] 4.1 Declare `SavedComponent` in `AppModule` and add a `saved` route in `app.routes.ts`; verify `/saved` renders the page with `npm start`
-- [ ] 4.2 Add the `saved` link to `header.component.html` alongside the existing feed links with `routerLinkActive`; verify by clicking it in the running app that it navigates and is marked active
+- [x] 4.1 Declare `SavedComponent` in `AppModule` and add a `saved` route in `app.routes.ts`; verify `/saved` renders the page with `npm start`
+- [x] 4.2 Add the `saved` link to `header.component.html` alongside the existing feed links with `routerLinkActive`; verify by clicking it in the running app that it navigates and is marked active
 
 ## 5. Verification
 
-- [ ] 5.1 Run `npm run lint` and `CHROME_BIN=$(find /opt/.devin/chrome -name chrome -type f | head -1) npm test -- --watch=false` and verify both pass
-- [ ] 5.2 Walk the full flow in the running app — save two stories from a feed, reload, open `/saved`, unsave one, reload again — and verify the list matches expectations at each step
-- [ ] 5.3 Seed 200 saved stories in `localStorage`, save one more in the running app, and verify the eviction notice names the oldest story and the saved page still lists 200 after a reload
+- [x] 5.1 Run `npm run lint` and `CHROME_BIN=$(find /opt/.devin/chrome -name chrome -type f | head -1) npm test -- --watch=false` and verify both pass
+- [x] 5.2 Walk the full flow in the running app — save two stories from a feed, reload, open `/saved`, unsave one, reload again — and verify the list matches expectations at each step
+- [x] 5.3 Seed 200 saved stories in `localStorage`, save one more in the running app, and verify the eviction notice names the oldest story and the saved page still lists 200 after a reload
