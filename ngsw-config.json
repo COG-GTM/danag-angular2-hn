@@ -25,5 +25,32 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-items",
+      "urls": [
+        "https://node-hnapi.herokuapp.com/item/**"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 200,
+        "maxAge": "1d"
+      }
+    }, {
+      "name": "api-feeds",
+      "urls": [
+        "https://node-hnapi.herokuapp.com/news**",
+        "https://node-hnapi.herokuapp.com/newest**",
+        "https://node-hnapi.herokuapp.com/ask**",
+        "https://node-hnapi.herokuapp.com/show**",
+        "https://node-hnapi.herokuapp.com/jobs**"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 50,
+        "maxAge": "1h"
+      }
+    }
   ]
 }
