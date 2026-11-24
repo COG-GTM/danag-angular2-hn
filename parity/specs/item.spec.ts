@@ -18,17 +18,22 @@ test('comments link opens item details with the full comment tree', async ({ pag
 
 test('collapsing a comment hides its text and replies', async ({ page }) => {
   const item = fixture(`item-${meta.storyId}.json`);
-  const firstLive = item.comments.find((c: any) => !c.deleted);
+  const withReplies = item.comments.find((c: any) => !c.deleted && (c.comments || []).length > 0);
   await page.goto(`/item/${meta.storyId}`);
-  const first = page.locator('ul.comment-list > li').nth(item.comments.indexOf(firstLive));
-  const toggle = first.locator('.meta .collapse').first();
+  const thread = page.locator('ul.comment-list > li').nth(item.comments.indexOf(withReplies));
+  const toggle = thread.locator('.meta .collapse').first();
+  const text = thread.locator('.comment-text').first();
+  const replies = thread.locator('ul.subtree app-comment');
   await expect(toggle).toHaveText('[-]');
-  await expect(first.locator('.comment-text').first()).toBeVisible();
+  await expect(text).toBeVisible();
+  await expect(replies.first()).toBeVisible();
   await toggle.click();
   await expect(toggle).toHaveText('[+]');
-  await expect(first.locator('.comment-text').first()).toBeHidden();
+  await expect(text).toBeHidden();
+  await expect(replies.first()).toBeHidden();
   await toggle.click();
-  await expect(first.locator('.comment-text').first()).toBeVisible();
+  await expect(text).toBeVisible();
+  await expect(replies.first()).toBeVisible();
 });
 
 test('ask story without URL links title to its own item page', async ({ page }) => {
