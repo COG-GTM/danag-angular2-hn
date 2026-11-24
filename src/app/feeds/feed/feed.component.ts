@@ -34,12 +34,12 @@ export class FeedComponent implements OnInit {
       this._hackerNewsAPIService.fetchFeed(this.feedType(), pageNum)
         .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe({
-          next: items => this.items.set(items),
-          error: () => this.errorMessage.set('Could not load ' + this.feedType() + ' stories.'),
-          complete: () => {
+          next: items => {
+            this.items.set(items);
             this.listStart.set(((pageNum - 1) * 30) + 1);
             window.scrollTo(0, 0);
-          }
+          },
+          error: () => this.errorMessage.set('Could not load ' + this.feedType() + ' stories.')
         });
     });
   }
