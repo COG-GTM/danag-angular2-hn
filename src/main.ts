@@ -1,11 +1,12 @@
-import { enableProdMode, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
+import { enableProdMode, provideZoneChangeDetection } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+import { provideServiceWorker } from '@angular/service-worker';
 
 import { environment } from './environments/environment';
 import { HackerNewsAPIService } from './app/shared/services/hackernews-api.service';
 import { SettingsService } from './app/shared/services/settings.service';
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { routing } from './app/app.routes';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 
 if (environment.production) {
@@ -15,9 +16,10 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
     providers: [
         provideZoneChangeDetection(),
-        importProvidersFrom(BrowserModule, routing, ServiceWorkerModule.register('ngsw-worker.js', {
+        provideRouter(routes),
+        provideServiceWorker('ngsw-worker.js', {
             enabled: environment.production,
-        })),
+        }),
         HackerNewsAPIService, SettingsService,
     ]
 })
