@@ -26,10 +26,17 @@ for (const [feed, page] of [['news', 1], ['news', 2], ['newest', 1], ['show', 1]
 }
 
 const news = feeds['news-1'];
-const story = news.find(s => s.comments_count >= 3 && s.comments_count <= 80) || news[0];
+// The collapse spec needs a live top-level comment that has replies.
+const hasThread = item => (item.comments || []).some(c => !c.deleted && (c.comments || []).length > 0);
+let story, storyItem;
+for (const s of news.filter(s => s.comments_count >= 3 && s.comments_count <= 80)) {
+  const item = await get(`${HNAPI}/item/${s.id}`);
+  if (hasThread(item)) { story = s; storyItem = item; break; }
+}
+if (!story) throw new Error('no news story with a threaded comment; re-run later');
 const ask = feeds['ask-1'].find(s => s.comments_count >= 1 && s.comments_count <= 80) || feeds['ask-1'][0];
-const ids = new Set([story.id, ask.id]);
-for (const id of ids) save(`item-${id}.json`, await get(`${HNAPI}/item/${id}`));
+save(`item-${story.id}.json`, storyItem);
+if (ask.id !== story.id) save(`item-${ask.id}.json`, await get(`${HNAPI}/item/${ask.id}`));
 
 const users = new Set(['pg', story.user]);
 for (const u of users) save(`user-${u}.json`, await get(`${HNPWA}/user/${u}.json`));
