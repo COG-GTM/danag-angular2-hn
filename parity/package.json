@@ -1,0 +1,19 @@
+{
+  "name": "parity",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test",
+    "report": "node scripts/compose-report.mjs",
+    "record-fixtures": "node scripts/record-fixtures.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^20.19.43",
+    "pixelmatch": "^5.3.0",
+    "pngjs": "^7.0.0"
+  },
+  "private": true
+}

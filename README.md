@@ -73,6 +73,8 @@ Feel free to send me feedback on [twitter](https://twitter.com/hdjirdeh) or [fil
 
 ## Build process
 
+Requires Node.js 20.19+ (Angular CLI 21 refuses to run on older Node releases).
+
 Note: This project has been ejected (with AOT + production settings) in order to customize Webpack configurations.
 
  - Clone or download the repo
