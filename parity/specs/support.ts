@@ -10,12 +10,13 @@ function fixtureFor(url: URL): string | null {
   const p = url.pathname;
   if (url.host === 'node-hnapi.herokuapp.com') {
     const feed = p.match(/^\/(news|newest|show|ask|jobs)$/);
-    if (feed) return `feed-${feed[1]}-${url.searchParams.get('page') || 1}.json`;
+    const page = url.searchParams.get('page') || '1';
+    if (feed && /^\d+$/.test(page)) return `feed-${feed[1]}-${page}.json`;
     const item = p.match(/^\/item\/(\d+)$/);
     if (item) return `item-${item[1]}.json`;
   }
   if (url.host === 'api.hnpwa.com') {
-    const user = p.match(/^\/v0\/user\/([^/]+)\.json$/);
+    const user = p.match(/^\/v0\/user\/([\w-]+)\.json$/);
     if (user) return `user-${user[1]}.json`;
   }
   return null;

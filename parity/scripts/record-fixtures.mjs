@@ -14,6 +14,7 @@ async function get(url) {
   return JSON.parse(text);
 }
 function save(name, data) {
+  if (!/^[\w.-]+\.json$/.test(name) || name.includes('..')) throw new Error(`unsafe fixture name: ${name}`);
   writeFileSync(join(out, name), JSON.stringify(data, null, 1));
   console.log('saved', name);
 }
