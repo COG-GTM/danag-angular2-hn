@@ -21,7 +21,7 @@ const rows = [];
 const names = existsSync(join(shots, 'baseline')) ? readdirSync(join(shots, 'baseline')).filter(f => f.endsWith('.png')).sort() : [];
 for (const f of names) {
   const upPath = join(shots, 'upgraded', f);
-  if (!existsSync(upPath)) { rows.push({ name: f, diff: 'missing upgraded' }); continue; }
+  if (!existsSync(upPath)) { rows.push({ name: f.replace(/\.png$/, ''), diff: 'missing upgraded', missing: true }); continue; }
   const a = PNG.sync.read(readFileSync(join(shots, 'baseline', f)));
   const b = PNG.sync.read(readFileSync(upPath));
   const w = Math.max(a.width, b.width), h = Math.max(a.height, b.height);
@@ -55,7 +55,7 @@ md += `Baseline: ${count('baseline')}/${tests.size} passed. Upgraded: ${count('u
 md += `| Page / flow | baseline | upgraded |\n|---|---|---|\n`;
 for (const [k, v] of tests) md += `| ${k} | ${v.baseline || 'not run'} | ${v.upgraded || 'not run'} |\n`;
 md += `\n## Screenshots (baseline left, upgraded right)\n\n| Screen | pixel diff |\n|---|---|\n`;
-for (const r of rows) md += `| [${r.name}](side-by-side/${r.name}.png) | ${r.diff}${r.size || ''} |\n`;
-md += `\n## Run it\n\nThe baseline is master plus the profile-endpoint fix (commit a601f45, the first commit of the upgrade PR); plain master 404s on user profiles.\n\n\`\`\`bash\n# baseline (Angular 9) on :4000\ngit worktree add ../baseline a601f45 && cd ../baseline\nnvm use 12 && yarn install && npx ng serve --port 4000\n# upgraded (Angular 21) on :4200, from this branch\nnvm use 20 && yarn install && npx ng serve --port 4200\n# suite + report\ncd parity && npm ci && npx playwright install chromium\nnpx playwright test            # both projects\nnode scripts/compose-report.mjs\n\`\`\`\n`;
+for (const r of rows) md += r.missing ? `| ${r.name} | ${r.diff} |\n` : `| [${r.name}](side-by-side/${r.name}.png) | ${r.diff}${r.size || ''} |\n`;
+md += `\n## Run it\n\nThe baseline is master plus the profile-endpoint fix (commit a601f45, the first commit of the upgrade PR); plain master 404s on user profiles.\n\nUse three terminals; each \`ng serve\` keeps running.\n\n\`\`\`bash\n# terminal 1: baseline (Angular 9) on :4000\ngit worktree add ../baseline a601f45 && cd ../baseline\nnvm install 12 && yarn install && npx ng serve --port 4000\n# terminal 2: upgraded (Angular 21) on :4200, from this branch (Angular 21 needs Node >= 20.19)\nnvm install 20.19 && yarn install && npx ng serve --port 4200\n# terminal 3: suite + report, from this branch (Node >= 20.19)\nnvm use 20.19 && cd parity && npm ci && npx playwright install chromium\nnpx playwright test            # both projects\nnode scripts/compose-report.mjs\n\`\`\`\n`;
 writeFileSync(join(root, 'README.md'), md);
 console.log(md);
