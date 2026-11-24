@@ -22,7 +22,6 @@ function save(name, data) {
 const feeds = {};
 for (const [feed, page] of [['news', 1], ['news', 2], ['newest', 1], ['show', 1], ['ask', 1], ['jobs', 1]]) {
   feeds[`${feed}-${page}`] = await get(`${HNAPI}/${feed}?page=${page}`);
-  save(`feed-${feed}-${page}.json`, feeds[`${feed}-${page}`]);
 }
 
 const news = feeds['news-1'];
@@ -34,6 +33,8 @@ for (const s of news.filter(s => s.comments_count >= 3 && s.comments_count <= 80
   if (hasThread(item)) { story = s; storyItem = item; break; }
 }
 if (!story) throw new Error('no news story with a threaded comment; re-run later');
+// Write nothing until a usable story is found, so a failed run leaves the old fixtures intact.
+for (const [key, data] of Object.entries(feeds)) save(`feed-${key}.json`, data);
 const ask = feeds['ask-1'].find(s => s.comments_count >= 1 && s.comments_count <= 80) || feeds['ask-1'][0];
 save(`item-${story.id}.json`, storyItem);
 if (ask.id !== story.id) save(`item-${ask.id}.json`, await get(`${HNAPI}/item/${ask.id}`));
