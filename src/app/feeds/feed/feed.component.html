@@ -16,7 +16,7 @@
       }
       @if (feedType !== 'new') {
         <ol [class.list-margin]="feedType !== 'jobs'" start="{{ listStart }}">
-          @for (item of items; track item) {
+          @for (item of items; track item.id) {
             <li class="post">
               <item class="item-block" [item]="item"></item>
             </li>

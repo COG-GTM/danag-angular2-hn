@@ -9,7 +9,7 @@
       <div [hidden]="collapse">
         <p class="comment-text" [innerHTML]="comment.content"></p>
         <ul class="subtree">
-          @for (subComment of comment.comments; track subComment) {
+          @for (subComment of comment.comments; track subComment.id) {
             <li>
               <app-comment [comment]="subComment"></app-comment>
             </li>

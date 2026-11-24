@@ -63,7 +63,7 @@
       </div>
       @if (item.type === 'poll') {
         <div class="pollResults">
-          @for (pollResult of item.poll; track pollResult) {
+          @for (pollResult of item.poll; track $index) {
             <div class="pollContent">
               <div [innerHTML]="pollResult.content"></div>
               <div class="subtext">{{pollResult.points}} points</div>
@@ -74,7 +74,7 @@
       }
       <p class="subject" [innerHTML]="item.content"></p>
       <ul class="comment-list">
-        @for (comment of item.comments; track comment) {
+        @for (comment of item.comments; track comment.id) {
           <li >
             <app-comment [comment]="comment"></app-comment>
           </li>
