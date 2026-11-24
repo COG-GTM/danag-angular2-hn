@@ -5,6 +5,8 @@ Even if you have little to no experience with Angular, I'll be more than happy t
 
 ## Setup
 
+Requires Node.js 20.19+ (Angular CLI 21 refuses to run on older Node releases).
+
 1. Fork the repo
 2. Clone your fork
 3. Make a branch for your feature or bug fix
