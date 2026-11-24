@@ -1,22 +1,22 @@
 <div class="main-content">
-  @if (!item && !errorMessage) {
+  @if (!item() && !errorMessage()) {
     <app-loader></app-loader>
   }
-  @if (!item && errorMessage !== '') {
-    <app-error-message [message]="errorMessage"></app-error-message>
+  @if (!item() && errorMessage() !== '') {
+    <app-error-message [message]="errorMessage()"></app-error-message>
   }
 
-  @if (item) {
+  @if (item(); as item) {
     <div class="item">
       <div class="mobile item-header">
         <p class="title-block">
           <span class="back-button" (click)="goBack()"></span>
-          @if (hasUrl) {
+          @if (hasUrl()) {
             <a class="title" href="{{item.url}}" [attr.target]="settings.openLinkInNewTab ? '_blank' : null" [attr.rel]="settings.openLinkInNewTab ? 'noopener' : null">
               {{item.title}}
             </a>
           }
-          @if (!hasUrl) {
+          @if (!hasUrl()) {
             <a class="title" [routerLink]="['/item', item.id]"
               routerLinkActive="active">
               {{item.title}}
@@ -25,7 +25,7 @@
         </p>
       </div>
       <div class="laptop" [class.item-header]="item.comments_count > 0 || item.type === 'job'" [class.head-margin]="item.text">
-        @if (hasUrl) {
+        @if (hasUrl()) {
           <p>
             <a class="title" href="{{item.url}}" [attr.target]="settings.openLinkInNewTab ? '_blank' : null" [attr.rel]="settings.openLinkInNewTab ? 'noopener' : null">
               {{item.title}}
@@ -35,7 +35,7 @@
             }
           </p>
         }
-        @if (!hasUrl) {
+        @if (!hasUrl()) {
           <p>
             <a class="title" [routerLink]="['/item', item.id]" routerLinkActive="active">
               {{item.title}}

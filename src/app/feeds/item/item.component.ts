@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, input } from '@angular/core';
+import { Component, OnInit, computed, inject, input } from '@angular/core';
 import { Story } from '../../shared/models/story';
 
 import { SettingsService } from '../../shared/services/settings.service';
@@ -25,8 +25,6 @@ export class ItemComponent implements OnInit {
 
   ngOnInit() {}
 
-  get hasUrl(): boolean {
-    return this.item().url.indexOf('http') === 0;
-  }
+  readonly hasUrl = computed(() => this.item().url.indexOf('http') === 0);
 
 }

@@ -1,5 +1,5 @@
 <div [ngStyle]="{'margin-bottom': settings.listSpacing+'px'}">
-  @if (hasUrl) {
+  @if (hasUrl()) {
     <p>
       <a class="title" [ngStyle]="{'font-size': settings.titleFontSize+'px'}" href="{{item().url}}" [attr.target]="settings.openLinkInNewTab ? '_blank' : null" [attr.rel]="settings.openLinkInNewTab ? 'noopener' : null">
         {{item().title}}
@@ -9,7 +9,7 @@
       }
     </p>
   }
-  @if (!hasUrl) {
+  @if (!hasUrl()) {
     <p>
       <a class="title" [ngStyle]="{'font-size': settings.titleFontSize+'px'}" [routerLink]="['/item', item().id]" routerLinkActive="active">
         {{item().title}}
