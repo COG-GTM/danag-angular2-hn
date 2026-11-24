@@ -89,12 +89,12 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 476,
+                  "duration": 427,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:51.209Z",
+                  "startTime": "2026-11-24T03:04:52.670Z",
                   "attachments": []
                 }
               ],
@@ -121,12 +121,12 @@
                 {
                   "workerIndex": 1,
                   "status": "passed",
-                  "duration": 784,
+                  "duration": 761,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:51.185Z",
+                  "startTime": "2026-11-24T03:04:52.683Z",
                   "attachments": []
                 }
               ],
@@ -153,12 +153,12 @@
                 {
                   "workerIndex": 2,
                   "status": "passed",
-                  "duration": 682,
+                  "duration": 731,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:51.174Z",
+                  "startTime": "2026-11-24T03:04:52.675Z",
                   "attachments": []
                 }
               ],
@@ -185,12 +185,12 @@
                 {
                   "workerIndex": 3,
                   "status": "passed",
-                  "duration": 683,
+                  "duration": 739,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:51.185Z",
+                  "startTime": "2026-11-24T03:04:52.649Z",
                   "attachments": []
                 }
               ],
@@ -217,12 +217,12 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 603,
+                  "duration": 660,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:51.768Z",
+                  "startTime": "2026-11-24T03:04:53.172Z",
                   "attachments": []
                 }
               ],
@@ -247,14 +247,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 2,
+                  "workerIndex": 3,
                   "status": "passed",
-                  "duration": 509,
+                  "duration": 607,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:51.922Z",
+                  "startTime": "2026-11-24T03:04:53.459Z",
                   "attachments": []
                 }
               ],
@@ -279,14 +279,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 2,
                   "status": "passed",
-                  "duration": 755,
+                  "duration": 873,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:51.925Z",
+                  "startTime": "2026-11-24T03:04:53.477Z",
                   "attachments": []
                 }
               ],
@@ -313,12 +313,12 @@
                 {
                   "workerIndex": 1,
                   "status": "passed",
-                  "duration": 329,
+                  "duration": 434,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:52.045Z",
+                  "startTime": "2026-11-24T03:04:53.528Z",
                   "attachments": []
                 }
               ],
@@ -326,6 +326,262 @@
             }
           ],
           "id": "462034d17346c3cb6b6c-e759e376044a6902bfe6",
+          "file": "feeds.spec.ts",
+          "line": 47,
+          "column": 5
+        },
+        {
+          "title": "root redirects to the news feed page 1",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 550,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:57.311Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "462034d17346c3cb6b6c-be2af1eddcca34198074",
+          "file": "feeds.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "news feed lists every story with title, meta and pagination",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "passed",
+                  "duration": 882,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:57.359Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "462034d17346c3cb6b6c-0e0838b30208f63de225",
+          "file": "feeds.spec.ts",
+          "line": 10,
+          "column": 7
+        },
+        {
+          "title": "newest feed lists every story with title, meta and pagination",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 805,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:57.440Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "462034d17346c3cb6b6c-8f6a6fd4c5cbdfc11757",
+          "file": "feeds.spec.ts",
+          "line": 10,
+          "column": 7
+        },
+        {
+          "title": "show feed lists every story with title, meta and pagination",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 806,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:57.615Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "462034d17346c3cb6b6c-e4884da8ac82aa5965ee",
+          "file": "feeds.spec.ts",
+          "line": 10,
+          "column": 7
+        },
+        {
+          "title": "ask feed lists every story with title, meta and pagination",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 706,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:57.925Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "462034d17346c3cb6b6c-49b4ad21a8f3777faf63",
+          "file": "feeds.spec.ts",
+          "line": 10,
+          "column": 7
+        },
+        {
+          "title": "jobs feed lists every story with title, meta and pagination",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "passed",
+                  "duration": 650,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:58.314Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "462034d17346c3cb6b6c-0fd798aee236205e50a8",
+          "file": "feeds.spec.ts",
+          "line": 10,
+          "column": 7
+        },
+        {
+          "title": "news pagination: More goes to page 2 numbered from 31, Prev goes back",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 944,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:58.326Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "462034d17346c3cb6b6c-382860cb2736ec2a9ed2",
+          "file": "feeds.spec.ts",
+          "line": 32,
+          "column": 5
+        },
+        {
+          "title": "feed shows an error message when the API fails",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 435,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:58.522Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "462034d17346c3cb6b6c-8498c1f087b74f5333bc",
           "file": "feeds.spec.ts",
           "line": 47,
           "column": 5
@@ -353,12 +609,12 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 1032,
+                  "duration": 1144,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:52.379Z",
+                  "startTime": "2026-11-24T03:04:53.838Z",
                   "attachments": []
                 }
               ],
@@ -366,6 +622,38 @@
             }
           ],
           "id": "2de9cb50cb022a3f1ddd-ba554416a1917ec21e7d",
+          "file": "header.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "header links navigate between feeds and mark the active one",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 1109,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:58.639Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2de9cb50cb022a3f1ddd-aab4d32fdbf0dfe8dfad",
           "file": "header.spec.ts",
           "line": 3,
           "column": 5
@@ -393,12 +681,12 @@
                 {
                   "workerIndex": 1,
                   "status": "passed",
-                  "duration": 840,
+                  "duration": 893,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:52.382Z",
+                  "startTime": "2026-11-24T03:04:53.974Z",
                   "attachments": []
                 }
               ],
@@ -423,14 +711,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 2,
+                  "workerIndex": 3,
                   "status": "passed",
-                  "duration": 493,
+                  "duration": 484,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:52.441Z",
+                  "startTime": "2026-11-24T03:04:54.078Z",
                   "attachments": []
                 }
               ],
@@ -455,14 +743,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 2,
                   "status": "passed",
-                  "duration": 449,
+                  "duration": 665,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:52.685Z",
+                  "startTime": "2026-11-24T03:04:54.357Z",
                   "attachments": []
                 }
               ],
@@ -470,6 +758,102 @@
             }
           ],
           "id": "70174f12740723fc1703-b28e3bd928f52ad2c0ae",
+          "file": "item.spec.ts",
+          "line": 34,
+          "column": 5
+        },
+        {
+          "title": "comments link opens item details with the full comment tree",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 893,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:58.963Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "70174f12740723fc1703-83a3bbd37254bc4ac9b5",
+          "file": "item.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "collapsing a comment hides its text and replies",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "passed",
+                  "duration": 576,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:58.972Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "70174f12740723fc1703-c29841635126851982f1",
+          "file": "item.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "ask story without URL links title to its own item page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:59.280Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "70174f12740723fc1703-2b722008c5cb1a6b2188",
           "file": "item.spec.ts",
           "line": 34,
           "column": 5
@@ -497,14 +881,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 2,
+                  "workerIndex": 3,
                   "status": "passed",
-                  "duration": 1197,
+                  "duration": 1043,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:52.944Z",
+                  "startTime": "2026-11-24T03:04:54.568Z",
                   "attachments": []
                 }
               ],
@@ -512,6 +896,40 @@
             }
           ],
           "id": "b37044e47a10d94689f2-7890f9c2c377de74622e",
+          "file": "live.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "live API: news feed and a profile load",
+          "ok": true,
+          "tags": [
+            "live"
+          ],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "passed",
+                  "duration": 941,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:59.557Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b37044e47a10d94689f2-aa9fad738b3a4f23cbb4",
           "file": "live.spec.ts",
           "line": 3,
           "column": 5
@@ -537,14 +955,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 1,
                   "status": "passed",
-                  "duration": 719,
+                  "duration": 1057,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:53.138Z",
+                  "startTime": "2026-11-24T03:04:54.873Z",
                   "attachments": []
                 }
               ],
@@ -569,14 +987,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "status": "passed",
-                  "duration": 274,
+                  "duration": 391,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:53.226Z",
+                  "startTime": "2026-11-24T03:04:54.995Z",
                   "attachments": []
                 }
               ],
@@ -584,6 +1002,70 @@
             }
           ],
           "id": "e79c838550b25e92508e-0c22c045abc49cd79c09",
+          "file": "mobile.spec.ts",
+          "line": 18,
+          "column": 5
+        },
+        {
+          "title": "mobile feed and item header with back button",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 979,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:59.755Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e79c838550b25e92508e-9cd4c047b59980d4b780",
+          "file": "mobile.spec.ts",
+          "line": 5,
+          "column": 5
+        },
+        {
+          "title": "mobile profile header",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 359,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:59.817Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e79c838550b25e92508e-d9318e6812ba1177274b",
           "file": "mobile.spec.ts",
           "line": 18,
           "column": 5
@@ -609,14 +1091,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 2,
                   "status": "passed",
-                  "duration": 577,
+                  "duration": 735,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:53.416Z",
+                  "startTime": "2026-11-24T03:04:55.033Z",
                   "attachments": []
                 }
               ],
@@ -641,14 +1123,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "status": "passed",
-                  "duration": 835,
+                  "duration": 995,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:53.506Z",
+                  "startTime": "2026-11-24T03:04:55.391Z",
                   "attachments": []
                 }
               ],
@@ -675,12 +1157,12 @@
                 {
                   "workerIndex": 3,
                   "status": "passed",
-                  "duration": 886,
+                  "duration": 1011,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:53.862Z",
+                  "startTime": "2026-11-24T03:04:55.615Z",
                   "attachments": []
                 }
               ],
@@ -705,14 +1187,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 2,
                   "status": "passed",
-                  "duration": 290,
+                  "duration": 356,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:53.997Z",
+                  "startTime": "2026-11-24T03:04:55.772Z",
                   "attachments": []
                 }
               ],
@@ -737,14 +1219,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 2,
+                  "workerIndex": 1,
                   "status": "passed",
-                  "duration": 667,
+                  "duration": 801,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:54.146Z",
+                  "startTime": "2026-11-24T03:04:55.945Z",
                   "attachments": []
                 }
               ],
@@ -769,14 +1251,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 2,
                   "status": "passed",
-                  "duration": 714,
+                  "duration": 800,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:54.291Z",
+                  "startTime": "2026-11-24T03:04:56.136Z",
                   "attachments": []
                 }
               ],
@@ -784,6 +1266,198 @@
             }
           ],
           "id": "d877ffdf71ec720167ae-4a3361430bda1fa74c07",
+          "file": "settings.spec.ts",
+          "line": 48,
+          "column": 5
+        },
+        {
+          "title": "settings popup opens and closes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 674,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:04:59.862Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d877ffdf71ec720167ae-91619bff0e8d673ddad4",
+          "file": "settings.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "night theme applies and persists across reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 1063,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:05:00.186Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d877ffdf71ec720167ae-91d93cbfea55059b2c9b",
+          "file": "settings.spec.ts",
+          "line": 15,
+          "column": 7
+        },
+        {
+          "title": "amoledblack theme applies and persists across reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "passed",
+                  "duration": 1024,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:05:00.503Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d877ffdf71ec720167ae-6ab455e13b47ecc7de62",
+          "file": "settings.spec.ts",
+          "line": 15,
+          "column": 7
+        },
+        {
+          "title": "dark OS preference picks the night theme by default",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 330,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:05:00.539Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d877ffdf71ec720167ae-59773f931e4323613c4e",
+          "file": "settings.spec.ts",
+          "line": 27,
+          "column": 5
+        },
+        {
+          "title": "open links in new tab toggles target on story links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 807,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:05:00.742Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d877ffdf71ec720167ae-fb1efd0b677d09576c8d",
+          "file": "settings.spec.ts",
+          "line": 36,
+          "column": 5
+        },
+        {
+          "title": "font size and list spacing change the feed layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 907,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:05:00.874Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d877ffdf71ec720167ae-28bb2427b70dd2b77e80",
           "file": "settings.spec.ts",
           "line": 48,
           "column": 5
@@ -809,14 +1483,14 @@
               "projectName": "baseline",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "status": "passed",
-                  "duration": 407,
+                  "duration": 487,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:54.346Z",
+                  "startTime": "2026-11-24T03:04:56.393Z",
                   "attachments": []
                 }
               ],
@@ -843,12 +1517,12 @@
                 {
                   "workerIndex": 3,
                   "status": "passed",
-                  "duration": 331,
+                  "duration": 386,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:54.753Z",
+                  "startTime": "2026-11-24T03:04:56.632Z",
                   "attachments": []
                 }
               ],
@@ -875,12 +1549,12 @@
                 {
                   "workerIndex": 1,
                   "status": "passed",
-                  "duration": 326,
+                  "duration": 386,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-24T02:44:54.758Z",
+                  "startTime": "2026-11-24T03:04:56.751Z",
                   "attachments": []
                 }
               ],
@@ -891,15 +1565,111 @@
           "file": "user.spec.ts",
           "line": 23,
           "column": 5
+        },
+        {
+          "title": "author link opens the user profile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 524,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:05:01.257Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "475d3afc1dfeb7586876-83106951787c4dcd3937",
+          "file": "user.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "profile renders karma, age and about HTML",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "passed",
+                  "duration": 391,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:05:01.539Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "475d3afc1dfeb7586876-bf7c75bd1ee586fd9217",
+          "file": "user.spec.ts",
+          "line": 13,
+          "column": 5
+        },
+        {
+          "title": "unknown user shows an error",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "upgraded",
+              "projectName": "upgraded",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 345,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T03:05:01.556Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "475d3afc1dfeb7586876-f71d7e28630e8a16a526",
+          "file": "user.spec.ts",
+          "line": 23,
+          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-24T02:44:50.731Z",
-    "duration": 4381.99,
-    "expected": 24,
+    "startTime": "2026-11-24T03:04:52.278Z",
+    "duration": 9681.759,
+    "expected": 48,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
