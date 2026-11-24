@@ -18,8 +18,10 @@ function pad(img, w, h) {
 }
 
 const rows = [];
-const names = existsSync(join(shots, 'baseline')) ? readdirSync(join(shots, 'baseline')).filter(f => f.endsWith('.png')).sort() : [];
+const list = dir => existsSync(join(shots, dir)) ? readdirSync(join(shots, dir)).filter(f => f.endsWith('.png')) : [];
+const names = [...new Set([...list('baseline'), ...list('upgraded')])].sort();
 for (const f of names) {
+  if (!existsSync(join(shots, 'baseline', f))) { rows.push({ name: f.replace(/\.png$/, ''), diff: 'missing baseline', missing: true }); continue; }
   const upPath = join(shots, 'upgraded', f);
   if (!existsSync(upPath)) { rows.push({ name: f.replace(/\.png$/, ''), diff: 'missing upgraded', missing: true }); continue; }
   const a = PNG.sync.read(readFileSync(join(shots, 'baseline', f)));
