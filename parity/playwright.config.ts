@@ -2,6 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './specs',
+  globalSetup: './global-setup.ts',
   outputDir: './test-results',
   fullyParallel: true,
   workers: 4,
