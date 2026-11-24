@@ -56,6 +56,6 @@ md += `| Page / flow | baseline | upgraded |\n|---|---|---|\n`;
 for (const [k, v] of tests) md += `| ${k} | ${v.baseline || 'not run'} | ${v.upgraded || 'not run'} |\n`;
 md += `\n## Screenshots (baseline left, upgraded right)\n\n| Screen | pixel diff |\n|---|---|\n`;
 for (const r of rows) md += `| [${r.name}](side-by-side/${r.name}.png) | ${r.diff}${r.size || ''} |\n`;
-md += `\n## Run it\n\n\`\`\`bash\ncd parity && npm ci && npx playwright install chromium\nnpx playwright test            # both projects\nnode scripts/compose-report.mjs\n\`\`\`\n`;
+md += `\n## Run it\n\nThe baseline is master plus the profile-endpoint fix (commit a601f45, the first commit of the upgrade PR); plain master 404s on user profiles.\n\n\`\`\`bash\n# baseline (Angular 9) on :4000\ngit worktree add ../baseline a601f45 && cd ../baseline\nnvm use 12 && yarn install && npx ng serve --port 4000\n# upgraded (Angular 21) on :4200, from this branch\nnvm use 20 && yarn install && npx ng serve --port 4200\n# suite + report\ncd parity && npm ci && npx playwright install chromium\nnpx playwright test            # both projects\nnode scripts/compose-report.mjs\n\`\`\`\n`;
 writeFileSync(join(root, 'README.md'), md);
 console.log(md);

@@ -58,7 +58,15 @@ Baseline: 24/24 passed. Upgraded: 24/24 passed.
 
 ## Run it
 
+The baseline is master plus the profile-endpoint fix (commit a601f45, the first commit of the upgrade PR); plain master 404s on user profiles.
+
 ```bash
+# baseline (Angular 9) on :4000
+git worktree add ../baseline a601f45 && cd ../baseline
+nvm use 12 && yarn install && npx ng serve --port 4000
+# upgraded (Angular 21) on :4200, from this branch
+nvm use 20 && yarn install && npx ng serve --port 4200
+# suite + report
 cd parity && npm ci && npx playwright install chromium
 npx playwright test            # both projects
 node scripts/compose-report.mjs
